@@ -11,12 +11,18 @@
   <meta name="MobileOptimized" content="320">
   <meta name="HandheldFriendly" content="True">
   <style>
-    details h4 {
+    details h4,
+    input:not(input:last-of-type) {
       margin-bottom: 0.5em;
     }
 
     details p {
       margin-top: 0;
+    }
+
+    label,
+    input {
+      display: block;
     }
   </style>
   <title>Patagonia Price Drop Notification - a very simple email sales alert / price watch tracker for Patagonia, REI,
