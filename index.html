@@ -27,9 +27,9 @@
   </style>
   <title>Patagonia Price Drop Notification - a very simple email sales alert / price watch tracker for Patagonia, REI,
     Fjallraven, North Face, Amazon, Blundstone, Merrell and more </title>
-  <!-- <link rel="stylesheet" href="css/main.css" media="screen" /> -->
-  <link rel="shortcut icon" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <!-- <link rel="stylesheet" data-track-content href="css/main.css" media="screen" /> -->
+  <link rel="shortcut icon" data-track-content href="favicon.png" />
+  <link rel="apple-touch-icon" data-track-content href="favicon.png" />
 
 </head>
 
@@ -46,12 +46,13 @@
       Send me the URL, and your preferred size and color, using the form below.
     </li>
     <li>
-      I’ll check every day<sup><a style="text-decoration:none;"
+      I’ll check every day<sup><a style="text-decoration:none;" data-track-content
           href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
       and when it goes on sale, I’ll send you an email.
     </li>
     <li>
-      <a href="https://www.autodidacts.io/#/portal/support">Pay what seems fair</a>, either now or when
+      <a data-track-content href="https://www.autodidacts.io/#/portal/support">Pay what seems fair</a>, either now or
+      when
       you buy the (steeply
       discounted) product.
     </li>
@@ -67,43 +68,144 @@
     <label for="#size">Size</label>
     <input id="size" name="size" type="text">
     <br>
-    <a href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at the front of the queue.)<br>
+    <a data-track-content href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at the front of
+    the queue.)<br>
     <br>
-    <button style="cursor:pointer">Tell me when it goes on sale!</button><br>
+    <button data-track-content style="cursor:pointer">Tell me when it goes on sale!</button><br>
   </form>
   <br>
   <details id="split-test__faq">
-    <summary style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
+    <summary data-track-content style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
     <h4>Are any other sites supported?</h4>
     <p>Yeah, actually: REI, Amazon, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade,
       Merrell, Stylo.ca, and
       Blundstone.</p>
     <h4>What about $COMPANY?</h4>
-    <p>Sign up for an Autodidacts <a href="https://www.autodidacts.io/#/portal/">Patron of the Arts membership</a> and I
-      will add an extractor for your favourite company!<sup><a style="text-decoration:none;"
+    <p>Sign up for an Autodidacts <a data-track-content href="https://www.autodidacts.io/#/portal/">Patron of the Arts
+        membership</a> and I
+      will add an extractor for your favourite company!<sup><a style="text-decoration:none;" data-track-content
           href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
     </p>
     <h4>No, really, how does it work?</h4>
     <p>It’s ... a Python script that runs on my laptop :)</p>
     <h4>I want one!</h4>
-    <p>Blogpost coming soon! Subscribe by <a href="https://www.autodidacts.io/#/portal/">email</a> or <a
-        href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to roll your own
+    <p>Blogpost coming soon! Subscribe by <a data-track-content href="https://www.autodidacts.io/#/portal/">email</a> or
+      <a data-track-content href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to
+      roll your own
       custom,
       personal price
       drop
       alert script!</p>
     <h4>Wait, who are you?</h4>
-    <p><a href="https://www.curiositry.com">@curiositry</a></p>
+    <p><a data-track-content href="https://www.curiositry.com">@curiositry</a></p>
   </details>
 
-  <script>document.write("<script type='text/javascript' src='//analytics.autodidacts.io/plugins/SimpleABTesting/public/salez.ca.js?v=" + new Date().toISOString().slice(0, 13).replace('T', '') + "'><\/script>")</script>
+  <!-- <script>document.write("<script type='text/javascript' src='//analytics.autodidacts.io/plugins/SimpleABTesting/public/salez.ca.js?v=" + new Date().toISOString().slice(0, 13).replace('T', '') + "'><\/script>")</script> -->
   <!-- Matomo -->
   <script>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    splitTests = {
+      "pricing": {
+        loadJs: function () {
+          document.getElementById("split-test__howitworks").innerHTML = `
+    <li>
+      Pick out what you’d like to buy, eventually, from Patagonia.
+    </li>
+    <li>
+      Send me the URL, and your preferred size and color, using the form below.
+    </li>
+    <li>
+      I’ll check every day<sup><a style="text-decoration:none;"
+          data-track-content href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
+      and when it goes on sale, I’ll send you an email.
+    </li>
+    `;
+          document.getElementById("split-test__form").innerHTML = `
+    <label for="#email">Your email address</label>
+    <input id="email" name="email" type="email">
+    <label for="#url">The product you want to buy</label>
+    <input id="url" name="url" type="url">
+    <label for="#color">Color</label>
+    <input id="color" name="color" type="text">
+    <label for="#size">Size</label>
+    <input id="size" name="size" type="text">
+    <br>
+    <a data-track-content href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>
+    <br>
+    <button style="cursor:pointer">Tell me when it goes on sale!</button><br>
+    `;
+        }
+      },
+      "classy": {
+        loadJs: function () {
+          document.getElementById("split-test__faq").innerHTML = `
+    <summary style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
+    <h4>Are any other sites supported?</h4>
+    <p>Yes, actually: REI, Amazon, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade,
+      Merrell, Stylo.ca, and
+      Blundstone.</p>
+    <h4>What about $COMPANY?</h4>
+    <p>Sign up for an Autodidacts <a data-track-content href="https://www.autodidacts.io/#/portal/">Patron of the Arts membership</a> and I
+      will add an extractor for your favourite company!<sup><a style="text-decoration:none;"
+          data-track-content href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
+    </p>
+    <h4>No, really, how does it work?</h4>
+    <p>It’s a Python script that runs in cron :)</p>
+    <h4>I want one!</h4>
+    <p>Blogpost coming soon! Subscribe by <a data-track-content href="https://www.autodidacts.io/#/portal/">email</a> or <a
+        data-track-content href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to roll your own
+      custom,
+      personal price
+      drop
+      alert script!</p>
+    <h4>Wait, who are you?</h4>
+    <p><a data-track-content href="https://www.curiositry.com">@curiositry</a></p>
+    `;
+        }
+      },
+      "details-open": {
+        loadJs: function () {
+          document.getElementById("split-test__faq").open = true;
+        }
+      },
+    }
+
+    var _paq = window._paq = window._paq || [];
+
+    for (let i = 0; i < Object.keys(splitTests).length; i++) {
+      objectKey = Object.keys(splitTests)[i]
+      console.log(objectKey)
+      console.log(splitTests[objectKey])
+
+      variantKey = "split-test-" + objectKey
+      variantCookie = localStorage.getItem(variantKey)
+
+      // The user is already part of a split test: act accordingly
+      if (variantCookie) {
+        _paq.push(['setCustomDimension', i, variantKey + "-" + variantCookie]);
+        if (variantCookie == "1") {
+          splitTests[objectKey].loadJs()
+        }
+      } else {
+        // Assign new user to a variant
+        if (Math.random() > 0.5) {
+          // run the variant
+          _paq.push(['setCustomDimension', i, variantKey + "-" + 1]);
+          localStorage.setItem(variantKey, "1")
+          splitTests[objectKey].loadJs()
+        } else {
+          // run the control
+          _paq.push(['setCustomDimension', i, variantKey + "-" + 0]);
+          localStorage.setItem(variantKey, "0")
+        }
+      }
+    }
+
     _paq.push(["setCookieDomain", "*.salez.ca"]);
     _paq.push(["disableCookies"]);
     _paq.push(['trackPageView']);
+    _paq.push(['trackVisibleContentImpressions']);
     _paq.push(['enableLinkTracking']);
     (function () {
       var u = "//analytics.autodidacts.io/";
