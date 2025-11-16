@@ -185,7 +185,7 @@
 
       // The user is already part of a split test: act accordingly
       if (variantCookie) {
-        _paq.push(['setCustomDimension', i, variantKey + "-" + variantCookie]);
+        _paq.push(['setCustomDimension', i + 1, variantKey + "-" + variantCookie]);
         if (variantCookie == "1") {
           splitTests[objectKey].loadJs()
         }
@@ -193,12 +193,12 @@
         // Assign new user to a variant
         if (Math.random() > 0.5) {
           // run the variant
-          _paq.push(['setCustomDimension', i, variantKey + "-" + 1]);
+          _paq.push(['setCustomDimension', i + 1, variantKey + "-" + 1]);
           localStorage.setItem(variantKey, "1")
           splitTests[objectKey].loadJs()
         } else {
           // run the control
-          _paq.push(['setCustomDimension', i, variantKey + "-" + 0]);
+          _paq.push(['setCustomDimension', i + 1, variantKey + "-" + 0]);
           localStorage.setItem(variantKey, "0")
         }
       }
