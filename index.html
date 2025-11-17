@@ -47,11 +47,13 @@
     </li>
     <li>
       I’ll check every day<sup><a style="text-decoration:none;" data-track-content
+          data-content-name="Every day asterisk" data-content-piece="Every day asterisk"
           href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
       and when it goes on sale, I’ll send you an email.
     </li>
     <li>
-      <a data-track-content href="https://www.autodidacts.io/#/portal/support">Pay what seems fair</a>, either now or
+      <a data-track-content data-content-name="Portal support link" data-content-piece="Pay what seems fair"
+        href="https://www.autodidacts.io/#/portal/support">Pay what seems fair</a>, either now or
       when
       you buy the (steeply
       discounted) product.
@@ -68,30 +70,36 @@
     <label for="#size">Size</label>
     <input id="size" name="size" type="text">
     <br>
-    <a data-track-content href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at the front of
-    the queue.)<br>
+    <a data-track-content data-content-name="Portal support link" required data-content-piece="Pay now?"
+      href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at the front of
     <br>
     <button data-track-content data-content-name="Submit button" data-content-piece="Submit Button"
       data-content-target="formspreee" style="cursor:pointer">Tell me when it goes on sale!</button><br>
   </form>
   <br>
   <details id="split-test__faq">
-    <summary data-track-content style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
+    <summary data-track-content data-content-name="More details button" data-content-piece="More details button"
+      style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
     <h4>Are any other sites supported?</h4>
     <p>Yeah, actually: REI, Amazon, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade,
       Merrell, Stylo.ca, and
       Blundstone.</p>
     <h4>What about $COMPANY?</h4>
-    <p>Sign up for an Autodidacts <a data-track-content href="https://www.autodidacts.io/#/portal/">Patron of the Arts
+    <p>Sign up for an Autodidacts <a data-track-content data-content-name="Portal Link"
+        data-content-piece="Patrons of the Arts for free extractor" href="https://www.autodidacts.io/#/portal/">Patron
+        of the Arts
         membership</a> and I
       will add an extractor for your favourite company!<sup><a style="text-decoration:none;" data-track-content
+          data-content-name="Add extractor asterisk" data-content-piece="Add extractor asterisk"
           href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
     </p>
     <h4>No, really, how does it work?</h4>
     <p>It’s ... a Python script that runs on my laptop :)</p>
     <h4>I want one!</h4>
-    <p>Blogpost coming soon! Subscribe by <a data-track-content href="https://www.autodidacts.io/#/portal/">email</a> or
-      <a data-track-content href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to
+    <p>Blogpost coming soon! Subscribe by <a data-track-content data-content-name="Portal Link"
+        data-content-piece="Subscribe to blog" href="https://www.autodidacts.io/#/portal/">email</a> or
+      <a data-track-content data-content-name="RSS link" data-content-piece="RSS link"
+        href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to
       roll your own
       custom,
       personal price
@@ -99,7 +107,8 @@
       alert script!
     </p>
     <h4>Wait, who are you?</h4>
-    <p><a data-track-content href="https://www.curiositry.com">@curiositry</a></p>
+    <p><a data-track-content data-content-name="Author link" data-content-piece="curiositry.com"
+        href="https://www.curiositry.com">@curiositry</a></p>
   </details>
 
   <!-- <script>document.write("<script type='text/javascript' src='//analytics.autodidacts.io/plugins/SimpleABTesting/public/salez.ca.js?v=" + new Date().toISOString().slice(0, 13).replace('T', '') + "'><\/script>")</script> -->
@@ -119,7 +128,8 @@
     </li>
     <li>
       I’ll check every day<sup><a style="text-decoration:none;"
-          data-track-content href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
+          data-track-content
+          data-content-name="Every day asterisk" data-content-piece="Every day asterisk" href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
       and when it goes on sale, I’ll send you an email.
     </li>
     `;
@@ -133,8 +143,8 @@
     <label for="#size">Size</label>
     <input id="size" name="size" type="text">
     <br>
-    <a data-track-content href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>
-    <br>
+    <a data-track-content data-content-name="Portal support link" required data-content-piece="Buy me a coffee" href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>
+    <br>required 
     <button data-track-content data-content-name="Submit button" data-content-piece="Submit Button" data-content-target="formspreee" style="cursor:pointer">Tell me when it goes on sale!</button><br>
     `;
         }
@@ -142,27 +152,29 @@
       "classy": {
         loadJs: function () {
           document.getElementById("split-test__faq").innerHTML = `
-    <summary style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
+    <summary data-track-content data-content-name="More details button" data-content-piece="More details button" style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
     <h4>Are any other sites supported?</h4>
     <p>Yes, actually: REI, Amazon, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade,
       Merrell, Stylo.ca, and
       Blundstone.</p>
     <h4>What about $COMPANY?</h4>
-    <p>Sign up for an Autodidacts <a data-track-content href="https://www.autodidacts.io/#/portal/">Patron of the Arts membership</a> and I
+    <p>Sign up for an Autodidacts <a data-track-content data-content-name="Portal Link"
+        data-content-piece="Patrons of the Arts for free extractor" href="https://www.autodidacts.io/#/portal/">Patron of the Arts membership</a> and I
       will add an extractor for your favourite company!<sup><a style="text-decoration:none;"
-          data-track-content href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
+          data-track-content data-content-name="Add extractor asterisk" data-content-piece="Add extractor asterisk" href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
     </p>
     <h4>No, really, how does it work?</h4>
     <p>It’s a Python script that runs in cron :)</p>
     <h4>I want one!</h4>
-    <p>Blogpost coming soon! Subscribe by <a data-track-content href="https://www.autodidacts.io/#/portal/">email</a> or <a
-        data-track-content href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to roll your own
+    <p>Blogpost coming soon! Subscribe by <a data-track-content data-content-name="Portal Link"
+        data-content-piece="Subscribe to blog" href="https://www.autodidacts.io/#/portal/">email</a> or <a
+        data-track-content data-content-name="RSS link" data-content-piece="RSS link" href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to roll your own
       custom,
       personal price
       drop
       alert script!</p>
     <h4>Wait, who are you?</h4>
-    <p><a data-track-content href="https://www.curiositry.com">@curiositry</a></p>
+    <p><a data-track-content data-content-name="Author link" data-content-piece="curiositry.com" href="https://www.curiositry.com">@curiositry</a></p>
     `;
         }
       },
