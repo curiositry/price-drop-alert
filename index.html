@@ -118,7 +118,7 @@
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     splitTests = {
       "pricing": {
-        loadJs: function () {
+        js: function () {
           document.getElementById("split-test__howitworks").innerHTML = `
     <li>
       Pick out what you’d like to buy, eventually, from Patagonia.
@@ -150,7 +150,7 @@
         }
       },
       "classy": {
-        loadJs: function () {
+        js: function () {
           document.getElementById("split-test__faq").innerHTML = `
     <summary data-track-content data-content-name="More details button" data-content-piece="More details button" style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
     <h4>Are any other sites supported?</h4>
@@ -179,7 +179,7 @@
         }
       },
       "details-open": {
-        loadJs: function () {
+        js: function () {
           document.getElementById("split-test__faq").open = true;
         }
       },
@@ -199,7 +199,7 @@
       if (variantCookie) {
         _paq.push(['setCustomDimension', i + 1, variantKey + "-" + variantCookie]);
         if (variantCookie == "1") {
-          splitTests[objectKey].loadJs()
+          splitTests[objectKey].js()
         }
       } else {
         // Assign new user to a variant
@@ -207,7 +207,7 @@
           // run the variant
           _paq.push(['setCustomDimension', i + 1, variantKey + "-" + 1]);
           localStorage.setItem(variantKey, "1")
-          splitTests[objectKey].loadJs()
+          splitTests[objectKey].js()
         } else {
           // run the control
           _paq.push(['setCustomDimension', i + 1, variantKey + "-" + 0]);
