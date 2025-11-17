@@ -62,9 +62,9 @@
 
   <form id="split-test__form" action="https://formspree.io/f/meorlbqa" method="POST">
     <label for="#email">Your email address</label>
-    <input id="email" name="email" type="email">
+    <input required id="email" name="email" type="email">
     <label for="#url">The product you want to buy</label>
-    <input id="url" name="url" type="url">
+    <input required id="url" name="url" type="url">
     <label for="#color">Color</label>
     <input id="color" name="color" type="text">
     <label for="#size">Size</label>
@@ -135,9 +135,9 @@
     `;
           document.getElementById("split-test__form").innerHTML = `
     <label for="#email">Your email address</label>
-    <input id="email" name="email" type="email">
+    <input required id="email" name="email" type="email">
     <label for="#url">The product you want to buy</label>
-    <input id="url" name="url" type="url">
+    <input required id="url" name="url" type="url">
     <label for="#color">Color</label>
     <input id="color" name="color" type="text">
     <label for="#size">Size</label>
