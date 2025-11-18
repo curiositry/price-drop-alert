@@ -52,11 +52,10 @@
       and when it goes on sale, I’ll send you an email.
     </li>
     <li>
-      <a data-track-content data-content-name="Portal support link" data-content-piece="Pay what seems fair"
-        href="https://www.autodidacts.io/#/portal/support">Pay what seems fair</a>, either now or
-      when
-      you buy the (steeply
-      discounted) product.
+      <a id="split-test__pricing" data-track-content data-content-name="Portal support link"
+        data-content-piece="Pay what seems fair" href="https://www.autodidacts.io/#/portal/support">Pay what seems
+        fair</a>, either now or when you buy the
+      (steeply discounted) product.
     </li>
   </ol>
 
@@ -70,12 +69,13 @@
     <label for="#size">Size</label>
     <input id="size" name="size" type="text">
     <br>
-    <a data-track-content data-content-name="Portal support link" data-content-piece="Pay now?"
-      href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at the front of
-    the queue.)<br>
+    <span id="split-test__pay-link"><a data-track-content data-content-name="Portal support link"
+        data-content-piece="Pay now?" href="https://www.autodidacts.io/#/portal/support">Pay now?</a> (This puts you at
+      the front of
+      the queue.)</span><br>
     <br>
-    <button data-track-content data-content-name="Submit button" data-content-piece="Submit Button"
-      data-content-target="formspreee" style="cursor:pointer">Tell me when it goes on sale!</button><br>
+    <button id="submit" data-track-content data-content-name="Submit button" data-content-piece="Submit Button"
+      data-content-target="formspree" style="cursor:pointer">Tell me when it goes on sale!</button><br>
   </form>
   <br>
   <details id="split-test__faq">
@@ -95,7 +95,7 @@
           href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
     </p>
     <h4>No, really, how does it work?</h4>
-    <p>It’s ... a Python script that runs on my laptop :)</p>
+    <p id="split-test__laptop">It’s ... a Python script that runs on my laptop :)</p>
     <h4>I want one!</h4>
     <p>Blogpost coming soon! Subscribe by <a data-track-content data-content-name="Portal Link"
         data-content-piece="Subscribe to blog" href="https://www.autodidacts.io/#/portal/">email</a> or
@@ -120,63 +120,13 @@
     splitTests = {
       "pricing": {
         js: function () {
-          document.getElementById("split-test__howitworks").innerHTML = `
-    <li>
-      Pick out what you’d like to buy, eventually, from Patagonia.
-    </li>
-    <li>
-      Send me the URL, and your preferred size and color, using the form below.
-    </li>
-    <li>
-      I’ll check every day<sup><a style="text-decoration:none;"
-          data-track-content
-          data-content-name="Every day asterisk" data-content-piece="Every day asterisk" href="javascript:alert('This is subject to change, if I discover it is unnecessary to check that often, or I have too many URLs to check that often, or for some other reason I just plain fail to check that often.')">*</a></sup>,
-      and when it goes on sale, I’ll send you an email.
-    </li>
-    `;
-          document.getElementById("split-test__form").innerHTML = `
-    <label for="#email">Your email address</label>
-    <input required id="email" name="email" type="email">
-    <label for="#url">The product you want to buy</label>
-    <input required id="url" name="url" type="url">
-    <label for="#color">Color</label>
-    <input id="color" name="color" type="text">
-    <label for="#size">Size</label>
-    <input id="size" name="size" type="text">
-    <br>
-    <a data-track-content data-content-name="Portal support link" data-content-piece="Buy me a coffee" href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>
-    <br> 
-    <button data-track-content data-content-name="Submit button" data-content-piece="Submit Button" data-content-target="formspreee" style="cursor:pointer">Tell me when it goes on sale!</button><br>
-    `;
+          document.getElementById("split-test__pricing").hidden = true;
+          document.getElementById("split-test__pay-now").outerHTML = `<a data-track-content data-content-name="Portal support link" data-content-piece="Buy me a coffee" href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>`;
         }
       },
       "classy": {
         js: function () {
-          document.getElementById("split-test__faq").innerHTML = `
-    <summary data-track-content data-content-name="More details button" data-content-piece="More details button" style="cursor:pointer;font-size:larger;font-weight:600;">More details</summary>
-    <h4>Are any other sites supported?</h4>
-    <p>Yes, actually: REI, Amazon, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade,
-      Merrell, Stylo.ca, and
-      Blundstone.</p>
-    <h4>What about $COMPANY?</h4>
-    <p>Sign up for an Autodidacts <a data-track-content data-content-name="Portal Link"
-        data-content-piece="Patrons of the Arts for free extractor" href="https://www.autodidacts.io/#/portal/">Patron of the Arts membership</a> and I
-      will add an extractor for your favourite company!<sup><a style="text-decoration:none;"
-          data-track-content data-content-name="Add extractor asterisk" data-content-piece="Add extractor asterisk" href="javascript:alert('Not all sites are straightforward to monitor: but if I don\'t manage to add your site in a timely fashion, you can cancel your membership before it renews, and I will refund your $7.')">*</a></sup>
-    </p>
-    <h4>No, really, how does it work?</h4>
-    <p>It’s a Python script that runs in cron :)</p>
-    <h4>I want one!</h4>
-    <p>Blogpost coming soon! Subscribe by <a data-track-content data-content-name="Portal Link"
-        data-content-piece="Subscribe to blog" href="https://www.autodidacts.io/#/portal/">email</a> or <a
-        data-track-content data-content-name="RSS link" data-content-piece="RSS link" href="https://www.autodidacts.io/rss">RSS</a> to (probably, eventually) hear about how to roll your own
-      custom,
-      personal price
-      drop
-      alert script!</p>
-    <h4>Wait, who are you?</h4>
-    <p><a data-track-content data-content-name="Author link" data-content-piece="curiositry.com" href="https://www.curiositry.com">@curiositry</a></p>
-    `;
+          document.getElementById("split-test__laptop").innerHTML = `It’s a Python script that runs in cron :)`;
         }
       },
       "details-open": {
@@ -223,9 +173,11 @@
     _paq.push(['trackVisibleContentImpressions']);
     _paq.push(['enableLinkTracking']);
     (function () {
-      var u = "//analytics.autodidacts.io/";
+      //var u = "//analytics.autodidacts.io/"; 
+      var u = "//localhost/matomo-piwik-installs/matomo-testing/";
       _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      _paq.push(['setSiteId', '6']);
+      //_paq.push(['setSiteId', '6']);
+      _paq.push(['setSiteId', '1']);
       var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
       g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
     })();
