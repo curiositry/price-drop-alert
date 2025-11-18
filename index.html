@@ -112,16 +112,14 @@
         href="https://www.curiositry.com">@curiositry</a></p>
   </details>
 
-  <!-- <script>document.write("<script type='text/javascript' src='//analytics.autodidacts.io/plugins/SimpleABTesting/public/salez.ca.js?v=" + new Date().toISOString().slice(0, 13).replace('T', '') + "'><\/script>")</script> -->
-  <!-- Matomo -->
+  <!-- Matomo + bespoke grug-brained split testing -->
   <script>
     var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     splitTests = {
       "pricing": {
         js: function () {
           document.getElementById("split-test__pricing").hidden = true;
-          document.getElementById("split-test__pay-now").outerHTML = `<a data-track-content data-content-name="Portal support link" data-content-piece="Buy me a coffee" href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>`;
+          document.getElementById("split-test__pay-link").outerHTML = `<a data-track-content data-content-name="Portal support link" data-content-piece="Buy me a coffee" href="https://www.autodidacts.io/#/portal/support">Buy me coffee</a> just to be nice?<br>`;
         }
       },
       "classy": {
@@ -140,8 +138,8 @@
 
     for (let i = 0; i < Object.keys(splitTests).length; i++) {
       objectKey = Object.keys(splitTests)[i]
-      console.log(objectKey)
-      console.log(splitTests[objectKey])
+      //console.log(objectKey)
+      //console.log(splitTests[objectKey])
 
       variantKey = "split-test-" + objectKey
       variantCookie = localStorage.getItem(variantKey)
@@ -173,14 +171,14 @@
     _paq.push(['trackVisibleContentImpressions']);
     _paq.push(['enableLinkTracking']);
     (function () {
-      //var u = "//analytics.autodidacts.io/"; 
-      var u = "//localhost/matomo-piwik-installs/matomo-testing/";
+      var u = "//analytics.autodidacts.io/";
       _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      //_paq.push(['setSiteId', '6']);
-      _paq.push(['setSiteId', '1']);
+      _paq.push(['setSiteId', '6']);
       var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
       g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
     })();
+
+
   </script>
   <noscript>
     <p><img referrerpolicy="no-referrer-when-downgrade" src="//analytics.autodidacts.io/matomo.php?idsite=6&amp;rec=1"
