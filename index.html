@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="description"
-    content="Get notified when your favourite Patagonia product goes on sale, in your size and color." />
+    content="Get notified when your favourite product goes on sale, in your size and color. Supports Patagonia, REI, Amazon, Best Buy, Fjallraven, Valhalla Pure, North Face, Lee Valley, The Last Hunt, Long & McQuade, Merrell, Stylo.ca, Blundstone, and more!" />
   <meta name="author" content="https://www.curiositry.com">
-  <!-- price tracker, price history, price watch, price drop alerts -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="MobileOptimized" content="320">
   <meta name="HandheldFriendly" content="True">
@@ -25,8 +24,8 @@
       display: block;
     }
   </style>
-  <title>Price Drop Notification - a very simple email sales alert / price watch tracker for Patagonia, REI,
-    Fjallraven, North Face, Amazon, Blundstone, Merrell and more </title>
+  <title>Simple Price Drop Notification - the best email sales alert / price watch tracker for Patagonia, REI,
+    Fjallraven, North Face, Amazon, Best Buy, Blundstone, Merrell and more </title>
   <!-- <link rel="stylesheet" href="css/main.css" media="screen" /> -->
   <link rel="shortcut icon" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
@@ -61,7 +60,8 @@
     </li>
   </ol>
 
-  <form id="split-test__form" action="https://formspree.io/f/meorlbqa" method="POST">
+  <form target="_blank" onsubmit="window.location = 'yay.html'" id="split-test__form"
+    action="https://formspree.io/f/meorlbqa" method="POST">
     <label for="#email">Your email address</label>
     <input required id="email" name="email" type="email">
     <label for="#url">The product you want to buy</label>
@@ -77,7 +77,8 @@
       the queue.)</span><br>
     <br>
     <button id="submit" data-track-content data-content-name="Submit button" data-content-piece="Submit Button"
-      data-content-target="formspree" style="cursor:pointer">Tell me when it goes on sale!</button><br>
+      data-content-target="formspree" style="cursor:pointer">Tell me when it goes on
+      sale!</button><br>
   </form>
   <br>
   <!-- <details id="split-test__faq"> -->
